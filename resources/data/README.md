@@ -1,0 +1,11 @@
+# SciFact provenance and reuse
+
+Data were downloaded from the [official BEIR SciFact archive](https://public.ukp.informatik.tu-darmstadt.de/thakur/BEIR/datasets/scifact.zip), following the [BEIR dataset list](https://github.com/beir-cellar/beir/wiki/Datasets-available). The immutable extracted files are `scifact/corpus.jsonl`, `queries.jsonl`, and `qrels/train.tsv`, `qrels/test.tsv`. The manifest records the archive SHA256 and each extracted file’s SHA256; counts are derived in code, not used as loading assumptions.
+
+Upstream attribution: David Wadden, Shanchuan Lin, Kyle Lo, Lucy Lu Wang, Madeleine van Zuylen, Arman Cohan, and Hannaneh Hajishirzi, **Fact or Fiction: Verifying Scientific Claims**, EMNLP 2020; [SciFact project](https://github.com/allenai/scifact). BEIR converts claims into retrieval queries and evidence annotations into qrels; [BEIR paper](https://arxiv.org/abs/2104.08663). The abstracts originate from Semantic Scholar’s S2ORC collection.
+
+The upstream [SciFact license notice](https://github.com/allenai/scifact/blob/master/LICENSE.md), copied verbatim as [LICENSE-SciFact.md](LICENSE-SciFact.md), identifies **CC BY 4.0 for claims and evidence annotations** and **ODC-By 1.0 for the abstract corpus**. Retain this attribution and notice when sharing the data, derived caches, notebook excerpts, and HTML exports. The code license in the upstream notice refers to upstream SciFact code, not to newly authored tutorial code. Models have separate Apache-2.0 licenses; weights are not redistributed in this folder.
+
+The tutorial does not alter these source files. Derived splits, typo text, embeddings, synthetic additions, and rankings are stored separately in `resources/assets/caches/`. These are modifications/derived artifacts of the original materials. Synthetic passages are clearly marked; they were not present in SciFact. The cached dataset license metadata is descriptive provenance, not a substitute for the linked licenses.
+
+Official train/test IDs are checked for overlap. The 809 official train IDs are sorted by SHA256 of [42, query_id], the first rounded 20% become validation, and the remainder become train. No test judgments are used for fitting or model selection. All 300 official test queries and all 5,183 documents are retained for aggregate evaluation. Unjudged documents are not verified negatives.

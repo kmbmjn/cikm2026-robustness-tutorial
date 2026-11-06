@@ -1,0 +1,83 @@
+{
+  "provenance": "historical CPU end-to-end query preprocessing + encoding + optional adapter + exact search; reranker off",
+  "query_ids": [
+    "1001",
+    "1006",
+    "1009",
+    "1011",
+    "1023",
+    "1025",
+    "1050",
+    "1065",
+    "1073",
+    "109",
+    "11",
+    "1119",
+    "112",
+    "1126",
+    "1128",
+    "1165",
+    "1169",
+    "1171",
+    "1173",
+    "1178",
+    "1182",
+    "1183",
+    "120",
+    "1218",
+    "1219",
+    "1234",
+    "1254",
+    "1260",
+    "1276",
+    "1291",
+    "1300",
+    "1304"
+  ],
+  "query_count": 32,
+  "repetitions": 3,
+  "batch_size": 32,
+  "warmup_batches": 1,
+  "platform": "macOS-27.0.1-arm64-arm-64bit",
+  "torch_threads": 4,
+  "blas_threads": 2,
+  "methods": {
+    "none": {
+      "ms_per_query": 2.2143619717098773,
+      "replicate_ms_per_query": [
+        2.302666656760266,
+        2.2143619717098773,
+        2.1669036541425157
+      ]
+    },
+    "input_normalization": {
+      "ms_per_query": 2.1772799373138696,
+      "replicate_ms_per_query": [
+        2.188716123782797,
+        2.1772799373138696,
+        2.132640624040505
+      ]
+    },
+    "vocab_spell_correction": {
+      "ms_per_query": 2.144864592992235,
+      "replicate_ms_per_query": [
+        2.144864592992235,
+        2.1427083447633777,
+        2.198309903178597
+      ]
+    },
+    "repair_adapter": {
+      "ms_per_query": 2.1699752505810466,
+      "replicate_ms_per_query": [
+        2.152417968318332,
+        2.184693999879528,
+        2.1699752505810466
+      ]
+    }
+  },
+  "adapter_config": {
+    "lambda": 0.1,
+    "train_noise_severity": 1,
+    "seed": 42
+  }
+}
